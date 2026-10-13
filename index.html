@@ -119,6 +119,8 @@ footer b{color:var(--mut);font-weight:500}
   .phon{flex-wrap:wrap}.phon div{flex:1 0 50%;border-left:none;border-top:1px solid var(--line)}
   .head .zi{font-size:32px}
 }
+#visit-stats{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;line-height:1.9;color:var(--mut);text-align:center}
+#visit-stats b{color:var(--ink);font-weight:600}
 </style>
 </head>
 <body>
@@ -160,6 +162,11 @@ footer b{color:var(--mut);font-weight:500}
     甲骨文只覆盖 1,425 字（已释甲骨文的客观上限）。<b>《说文》成书于东汉，许慎未见甲骨文，字形说解多有可商</b>
     （传统所称「释形、释义、引例、分部、妄羼」五误）；谐声系列由《说文》「从××聲」自动归并，个别字可能因释文异文而归属有误。<br>
     上古音未直接标注 —— 目前无可靠开放数据源；<b>谐声系列即上古音研究的第一手材料</b>，同声符者上古声韵俱近。专业定夺请以《说文新证》《汉字古音手册》为准。
+    <div id="visit-stats" aria-label="访问统计">
+      本页被看过 <b><span id="busuanzi_value_page_pv">…</span></b> 次
+      · <b><span id="busuanzi_value_site_uv">…</span></b> 位访客
+      · 来源 <span id="stat-source">检测中</span>
+    </div>
   </footer>
 </div>
 <script>
@@ -442,5 +449,7 @@ if(location.hash.includes('selftest')){setTimeout(async()=>{
   }catch(e){document.body.insertAdjacentHTML('beforeend','<p id="selftest-gif">GIF_ERR '+e.message+'</p>');}
 },700);}
 </script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="stats.js" defer></script>
 </body>
 </html>
