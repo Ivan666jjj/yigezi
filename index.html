@@ -120,7 +120,7 @@ footer b{color:var(--mut);font-weight:500}
 <div class="wrap">
   <header>
     <h1>一个字的一生</h1>
-    <div class="sub">简体 · 繁体 · 小篆 · 甲骨文</div>
+    <div class="sub">甲骨文 · 小篆 · 繁体 · 简体</div>
     <div class="stat">收录 10249 小篆字形 · 1425 甲骨文字形 · 9815 条《说文》 · 740 组谐声系列</div>
   </header>
   <div class="search"><input id="q" maxlength="6" placeholder="輸入漢字" autocomplete="off"></div>
@@ -135,7 +135,7 @@ footer b{color:var(--mut);font-weight:500}
       <button class="theme-btn" data-k="rubbing">碑拓</button>
       <button class="theme-btn" data-k="classic">藏经</button>
     </span>
-    <div class="hint" id="exphint">简体 ← 繁体 ← 小篆 ← 甲骨文，一路追溯回去</div>
+    <div class="hint" id="exphint">甲骨文 → 小篆 → 繁体 → 简体，一路演变下来</div>
   </div>
   <div class="card" id="card"></div>
   <footer>
@@ -179,17 +179,17 @@ function render(raw){
   const r=lookup(raw), card=$('#card');
   if(!r){card.innerHTML='<p class="note">请输入一个汉字。</p>';return;}
   const cells=[
-    {t:r.s,cls:'sys',lab:'简体',era:'今天',ok:1},
+    {t:r.oracChar,cls:'fonty',fam:'Orac',lab:'甲骨文',era:'商代',ok:!!r.oracChar,miss:'未见'},
+    {t:r.sealChar,cls:'fonty',fam:'Seal',lab:'小篆',era:'秦',ok:!!r.sealChar,miss:'无篆形'},
     {t:r.t,cls:'sys',lab:r.sameT?'繁体（同形）':'繁体',era:'汉以后',ok:1},
-    {t:r.sealChar,cls:'fonty',fam:'Seal',lab:'小篆',era:'秦',ok:!!r.sealChar},
-    {t:r.oracChar,cls:'fonty',fam:'Orac',lab:'甲骨文',era:'商代',ok:!!r.oracChar}
+    {t:r.s,cls:'sys',lab:'简体',era:'今天',ok:1}
   ];
   let tl='';
   cells.forEach((c,i)=>{
     if(i) tl+='';
     tl+=`<div class="stage"><div class="art">`+
       (c.ok?`<span class="${c.cls} glyphwrap"${c.fam?` style="font-family:${c.fam}"`:''}>${c.t}</span>`
-           :`<span class="void">${i===2?'无篆形':'未见'}</span>`)+
+           :`<span class="void">${c.miss}</span>`)+
       `</div><div class="lab">${c.lab}</div><div class="era">${c.era}</div></div>`;
   });
   const sw=r.sw||{};
@@ -274,10 +274,10 @@ function drawCard(c,W,H,r,scale,active){
   c.beginPath();c.moveTo(104*S,214*S);c.lineTo(W-104*S,214*S);c.stroke();
   const bw=(W-208*S)/4, by=246*S, bh=372*S;
   const cells=[
-    {t:r.s,font:`${140*S}px "Songti SC","Noto Serif CJK SC",serif`,lab:'简体',era:'今天',ok:1},
+    {t:r.oracChar,font:`${164*S}px Orac,serif`,lab:'甲骨文',era:'商代',ok:!!r.oracChar,miss:'未见'},
+    {t:r.sealChar,font:`${164*S}px Seal,serif`,lab:'小篆',era:'秦',ok:!!r.sealChar,miss:'无篆形'},
     {t:r.t,font:`${140*S}px "Songti SC","Noto Serif CJK SC",serif`,lab:r.sameT?'繁体（同形）':'繁体',era:'汉以后',ok:1},
-    {t:r.sealChar,font:`${164*S}px Seal,serif`,lab:'小篆',era:'秦',ok:!!r.sealChar},
-    {t:r.oracChar,font:`${164*S}px Orac,serif`,lab:'甲骨文',era:'商代',ok:!!r.oracChar}
+    {t:r.s,font:`${140*S}px "Songti SC","Noto Serif CJK SC",serif`,lab:'简体',era:'今天',ok:1}
   ];
   cells.forEach((cell,i)=>{
     const cx=104*S+i*bw, lit=(active<0)||(i<=active);
@@ -285,7 +285,7 @@ function drawCard(c,W,H,r,scale,active){
     if(lit){c.fillStyle=T.box;c.fillRect(cx+4*S,by+10*S,bw-8*S,bh-20*S);}
     c.textAlign='center';
     if(cell.ok){c.fillStyle=lit?T.red:T.ink;c.font=cell.font;c.fillText(cell.t,cx+bw/2,by+bh*0.58);}
-    else{c.fillStyle=T.dim;c.font=`${34*S}px "Songti SC",serif`;c.fillText(i===2?'无篆形':'未见',cx+bw/2,by+bh*0.54);}
+    else{c.fillStyle=T.dim;c.font=`${34*S}px "Songti SC",serif`;c.fillText(cell.miss,cx+bw/2,by+bh*0.54);}
     c.fillStyle=lit?T.red:T.ink;c.font=`${27*S}px "Songti SC",serif`;
     c.fillText(cell.lab,cx+bw/2,by+bh-62*S);
     c.fillStyle=T.dim;c.font=`${21*S}px "Songti SC",serif`;
@@ -324,7 +324,7 @@ function drawCard(c,W,H,r,scale,active){
     c.fillText(s2,104*S,H-156*S);
   }
   c.textAlign='center';c.fillStyle=T.dim;c.font=`${20*S}px "Songti SC",serif`;
-  c.fillText('一个字的一生 · 简体 · 繁体 · 小篆 · 甲骨文',W/2,H-104*S);
+  c.fillText('一个字的一生 · 甲骨文 · 小篆 · 繁体 · 简体',W/2,H-104*S);
   c.fillText('小篆 开元小篆 OFL-1.1 + 全字库 OGDL ｜ 甲骨文 Oracular OFL-1.1',W/2,H-72*S);
 }
 async function ensureFonts(){if(!document.fonts)return;
@@ -352,11 +352,11 @@ async function exportOne(ch,asGif){
 async function exportJPG(){const h=$('#exphint');h.textContent='正在生成图片…';h.classList.add('busy');
   try{const s=await exportOne(curData(),false);h.textContent=`已保存 ${s}.jpg ✓`;}
   catch(e){h.textContent='导出失败：'+e.message;} h.classList.remove('busy');
-  setTimeout(()=>h.textContent='简体 ← 繁体 ← 小篆 ← 甲骨文，一路追溯回去',2800);}
+  setTimeout(()=>h.textContent='甲骨文 → 小篆 → 繁体 → 简体，一路演变下来',2800);}
 async function exportGIF(){const h=$('#exphint');h.textContent='正在生成动图…';h.classList.add('busy');
   try{const s=await exportOne(curData(),true);h.textContent=`已保存 ${s}.gif ✓`;}
   catch(e){h.textContent='导出失败：'+e.message;} h.classList.remove('busy');
-  setTimeout(()=>h.textContent='简体 ← 繁体 ← 小篆 ← 甲骨文，一路追溯回去',2800);}
+  setTimeout(()=>h.textContent='甲骨文 → 小篆 → 繁体 → 简体，一路演变下来',2800);}
 async function exportBatch(){
   const box=prompt('输入要批量导出的字（可多个，逐字出一张图）：','日月山水火木人马车鱼');
   if(!box)return;
@@ -371,7 +371,7 @@ async function exportBatch(){
   }
   h.textContent=`批量导出完成 ${ok}/${chars.length} ✓（若浏览器询问，请允许下载多个文件）`;
   h.classList.remove('busy');
-  setTimeout(()=>h.textContent='简体 ← 繁体 ← 小篆 ← 甲骨文，一路追溯回去',5200);
+  setTimeout(()=>h.textContent='甲骨文 → 小篆 → 繁体 → 简体，一路演变下来',5200);
 }
 /* ===== GIF89a 编码器 ===== */
 const PALETTE_BITS=3;
