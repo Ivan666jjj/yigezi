@@ -18,7 +18,9 @@
 (function () {
   'use strict';
 
-  var NS = 'ivan666jjj.github.io/yigezi';       // Abacus 命名空间
+  // ⚠️ Abacus 的命名空间和 key 都不能含 . 或 /（会返回 308 重定向，计数静默丢失）
+  //    所以这里用连字符拼接，不要改成域名形式。
+  var NS = 'ivan666jjj-yigezi';
   var ABACUS = 'https://abacus.jasoncameron.dev/hit/';
 
   var NAMES = {
