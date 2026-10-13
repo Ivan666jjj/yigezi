@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>一个字的一生</title>
+<script>document.documentElement.className="js";</script>
 <style>
 @font-face{font-family:"Seal";src:url(seal.woff2) format("woff2");font-display:swap}
 @font-face{font-family:"Orac";src:url(orac.woff2) format("woff2");font-display:swap}
@@ -101,6 +102,10 @@ header .stat{margin-top:9px;font-size:11.5px;color:var(--dim);letter-spacing:.6p
 .xz .t{font-size:11.5px;color:var(--red);letter-spacing:2px;margin-bottom:7px}
 .xz p{font-size:14px;line-height:1.85;color:var(--ink);opacity:.9}
 .note{margin-top:16px;font-size:12.5px;color:var(--dim);line-height:1.9}
+html.js .envwarn{display:none}
+.envwarn{max-width:760px;margin:0 auto 22px;background:var(--box);border:1px solid var(--line);
+  color:var(--mut);padding:13px 17px;font-size:13px;line-height:1.85}
+.envwarn b{color:var(--red);font-weight:600}
 footer{max-width:760px;margin:48px auto 0;font-size:11.5px;color:var(--dim);line-height:2;
   border-top:1px solid var(--line);padding-top:20px;letter-spacing:.3px}
 footer b{color:var(--mut);font-weight:500}
@@ -137,7 +142,16 @@ footer b{color:var(--mut);font-weight:500}
     </span>
     <div class="hint" id="exphint">甲骨文 → 小篆 → 繁体 → 简体，一路演变下来</div>
   </div>
-  <div class="card" id="card"></div>
+  <div class="envwarn">⚠️ <b>当前环境没有执行 JavaScript</b>（iOS「文件」App 的预览、部分阅读器都会这样），
+    所以只能看到默认字的静态内容，输入、切换、导出都用不了。<br>
+    请改用<b>浏览器</b>打开本文件，或直接访问在线版：<b>ivan666jjj.github.io/yigezi</b></div>
+  <div class="card" id="card"><div class="head"><span class="zi">马</span><span class="trad">馬</span><span class="py">mǎ</span><span class="tag">四体俱全</span></div><div class="stages" id="tl"><div class="stage"><div class="art"><span class="fonty glyphwrap" style="font-family:Orac">馬</span></div><div class="lab">甲骨文</div><div class="era">商代</div></div><div class="stage"><div class="art"><span class="fonty glyphwrap" style="font-family:Seal">馬</span></div><div class="lab">小篆</div><div class="era">秦</div></div><div class="stage"><div class="art"><span class="sys glyphwrap">馬</span></div><div class="lab">繁体</div><div class="era">汉以后</div></div><div class="stage lit"><div class="art"><span class="sys glyphwrap">马</span></div><div class="lab">简体</div><div class="era">今天</div></div></div><div class="phon">
+    <div><label>現代音</label><span class="">mǎ</span></div>
+    <div><label>中古音·反切</label><span class="">莫下切</span><em>maeX</em></div>
+    <div class="wide"><label>中古音·音韻地位</label><span class="">假攝 開口 二等 上聲 麻韻 明母</span></div>
+    <div><label>上古音構擬</label><span class="oc">*mˤraʔ</span></div>
+  </div><div class="shuowen"><div class="q">怒也。武也。象馬頭髦尾四足之形。凡馬之屬皆从馬。</div><div class="src">《说文》卷 10　·　重文 𢒠𢒧</div></div><div class="xs"><h4>谐声系列 · 同从「<b>馬</b>」得声 <span style="color:var(--dim)">（5 字）</span></h4>
+      <div class="list"><button class="self" data-w="馬">馬</button><button class="" data-w="㾺">㾺</button><button class="" data-w="䣕">䣕</button><button class="" data-w="禡">禡</button><button class="" data-w="罵">罵</button></div><div class="note">同声符的字上古声母、韵部相近 —— 谐声是研究上古音与同源词的第一手材料。</div></div><div class="xz"><div class="t">关于这条《说文》</div><p>《说文》成书于东汉，许慎未见甲骨文，其「象××之形」一类字形说解多有可商。本字甲骨文字形见上，可对照参看。</p></div><div class="note">※ 简繁对应 马 → 馬</div></div>
   <footer>
     字形为矢量字体（按需子集），可无损缩放。小篆 <b>Shuowen Seal</b>（开元小篆 OFL-1.1 ＋ 全字库 OGDL）·
     甲骨文 <b>Oracular 鏡原甲骨文</b>（SIL OFL-1.1）。释义与反切据 <b>shuowen.org</b>（Apache-2.0），简繁映射 <b>OpenCC</b>（Apache-2.0）。<br>
