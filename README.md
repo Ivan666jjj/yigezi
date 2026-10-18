@@ -1,8 +1,13 @@
-# 一个字的一生
+# 一个字的一生 · The Life of a Character
 
 **甲骨文 → 小篆 → 繁体 → 简体** —— 看一个汉字三千年的样子。
+*Oracle Bone → Small Seal → Traditional → Simplified: three thousand years of a Chinese character, on a single page.*
 
-🔗 **在线访问**：<https://ivan666jjj.github.io/yigezi/>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/demo-online-success)](https://ivan666jjj.github.io/yigezi/)
+[![GitHub stars](https://img.shields.io/github/stars/Ivan666jjj/yigezi?style=social)](https://github.com/Ivan666jjj/yigezi/stargazers)
+
+**▶ 打开就试**：<https://ivan666jjj.github.io/yigezi/#z=江> —— 把“江”换成任意汉字，无需安装，可离线使用。
 
 ---
 
