@@ -53,13 +53,20 @@
 - DOI：[10.5281/zenodo.17349142](https://doi.org/10.5281/zenodo.17349142)
 - 参考：Baxter (1992) *A Handbook of Old Chinese Phonology*；Jacques (2021) *Middle Chinese*
 
-## 5. 上古音构拟
+## 5. 上古音拟音
 
+### 5.1 主要来源：《广韵形声考》
+
+- 来源：古音小镜 <http://www.kaom.net/sgy_bzd.php>
+- 内容：按谐声域组织的「上古音參考」列，本项目取其中的拟音，覆盖 2,963 字
+- 授权：**来源站未明示开放授权**。本项目仅作个人学习与学术展示用途；再分发、商用或二次开发前，**请先与古音小镜站方联系确认**
+- 说明：上古音为拟音，非历史真实读音；同一字在不同体系下拟音不同，引用时请注明体系
+
+### 5.2 补充：Baxter & Sagart (2014)
+
+- 用于《广韵形声考》未收的 200 字，页面上标 `B-S`
 - 来源：Baxter, William H. & Laurent **Sagart** (2014). *Old Chinese: A New Reconstruction*. Oxford University Press（官方补充材料）
 - 授权：**CC BY 4.0**
-- 内容：约 5,000 条上古音构拟（OC）、中古音（MC）、GSR 编号、英文释义
-
----
 
 ## 6. 明确未采用的来源（供参考）
 
